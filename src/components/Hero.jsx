@@ -3,6 +3,9 @@ import { FaShieldAlt, FaClock, FaMapMarkerAlt, FaCheckCircle } from 'react-icons
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 
+// Public assets served at root URL — do NOT import from /public as modules
+const heroBg = '/hero-new-bg.jpg';
+
 const Counter = ({ target, suffix = '', text, icon: Icon }) => {
   const [count, setCount] = useState(0);
 
@@ -43,7 +46,7 @@ const Counter = ({ target, suffix = '', text, icon: Icon }) => {
   );
 };
 
-import heroBg from '../../public/hero-new-bg.jpg';
+
 
 const EliteHero = () => {
   const { t } = useTranslation();

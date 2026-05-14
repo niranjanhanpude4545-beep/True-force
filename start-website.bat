@@ -1,16 +1,27 @@
 @echo off
-title TrueForce Website Launcher
+title TrueForce Dev Server
 color 0A
 
 echo.
-echo  ============================================
-echo    TRUE FORCE SECURITY - Website Launcher
-echo  ============================================
+echo  ============================================================
+echo    TRUE FORCE SECURITY - Local Development Server
+echo  ============================================================
 echo.
 
 cd /d "%~dp0"
 
-REM Check if node_modules exists - if not, run npm install first
+REM --- Step 1: Check Node.js is installed ---
+where node >nul 2>&1
+if %errorlevel% neq 0 (
+    echo  [ERROR] Node.js is NOT installed!
+    echo  Download it from: https://nodejs.org
+    echo.
+    pause
+    exit /b 1
+)
+echo  [OK] Node.js found.
+
+REM --- Step 2: Install dependencies if missing ---
 if not exist "node_modules\" (
     echo  [!] node_modules not found. Running npm install...
     echo  [*] This may take a few minutes on first run. Please wait...
@@ -18,60 +29,57 @@ if not exist "node_modules\" (
     call npm install
     if %errorlevel% neq 0 (
         echo.
-        echo  [ERROR] npm install failed! Make sure Node.js is installed.
-        echo  Download Node.js from: https://nodejs.org
+        echo  [ERROR] npm install failed!
+        echo  Try running: npm install --force
         pause
         exit /b 1
     )
     echo.
-    echo  [+] Installation complete!
+    echo  [+] Dependencies installed successfully!
     echo.
 ) else (
-    echo  [+] Dependencies found. Skipping install.
+    echo  [OK] Dependencies found.
 )
 
-REM Kill any existing Vite process on port 5173
+REM --- Step 3: Free port 5173 if already in use ---
 for /f "tokens=5" %%a in ('netstat -aon 2^>nul ^| findstr ":5173 " ^| findstr "LISTENING"') do (
-    echo  [*] Closing existing server on port 5173...
+    echo  [*] Freeing port 5173 ^(PID %%a^)...
     taskkill /PID %%a /F >nul 2>&1
 )
 
-echo  [*] Starting development server...
+REM --- Step 4: Start Vite server in background first ---
 echo.
+echo  [*] Starting Vite server in background...
+start "ViteServer" /B cmd /c "npm run dev > vite.log 2>&1"
 
-REM Start Vite dev server in background first
-start "" /B cmd /c "npm run dev > vite.log 2>&1"
-
+REM --- Step 5: Wait until port 5173 is actually ready ---
 echo  [*] Waiting for server to be ready...
-
-REM Wait up to 20 seconds for server to be ready
-set /a count=0
+set /a tries=0
 :waitloop
 timeout /t 1 /nobreak >nul
-set /a count+=1
-
+set /a tries+=1
 netstat -aon 2>nul | findstr ":5173 " | findstr "LISTENING" >nul 2>&1
-if %errorlevel%==0 goto :ready
-
-if %count% geq 20 (
-    echo  [!] Server is taking longer than usual. Opening browser anyway...
-    goto :open
+if %errorlevel%==0 goto :serverready
+if %tries% geq 20 (
+    echo  [!] Server is taking longer than usual...
+    goto :openbrowser
 )
 goto :waitloop
 
-:ready
+:serverready
 echo  [+] Server is ready!
 
-:open
-echo  [*] Opening browser...
+:openbrowser
+echo  [*] Opening browser at http://localhost:5173
 start "" "http://localhost:5173"
 
 echo.
-echo  ============================================
-echo    Website running at: http://localhost:5173
-echo    Close this window to STOP the server.
-echo  ============================================
+echo  ============================================================
+echo    Website is running at: http://localhost:5173
+echo    Close this window OR press Ctrl+C to STOP the server.
+echo  ============================================================
 echo.
 
-REM Keep window open and show server logs
+REM --- Step 6: Keep window open and show live logs ---
+type vite.log 2>nul
 cmd /k "npm run dev"

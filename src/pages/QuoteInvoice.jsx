@@ -3,7 +3,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaShareAlt, FaArrowLeft, FaShieldAlt, FaFileInvoice, FaCheckCircle, FaPrint, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
-import logoNew from '../../public/logo-new.png';
+// Public assets served at root URL — do NOT import from /public as modules
+const logoNew = '/logo-new.png';
 
 const QuoteInvoice = () => {
   const location = useLocation();
