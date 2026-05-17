@@ -4,7 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 
-import logoNew from '../../public/logo-new.png';
+// Public assets are served at root URL — do NOT import from /public as modules
+const logoNew = '/logo-new.png';
 
 const Navbar = ({ isDarkMode, toggleTheme }) => {
   const { t, i18n } = useTranslation();

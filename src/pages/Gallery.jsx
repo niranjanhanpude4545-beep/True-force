@@ -1,11 +1,12 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import img1 from '../../public/images/gallery_command_center_1775724037981.jpg';
-import img2 from '../../public/images/gallery_cctv_system_1775724262552.jpg';
-import img3 from '../../public/images/gallery_guard_post_1775724080278.jpg';
-import img4 from '../../public/images/gallery_cyber_security_1775724351240.jpg';
-import img5 from '../../public/images/gallery_asset_vault_1775724396613.jpg';
-import img6 from '../../public/images/gallery_patrol_vehicle_1775724379983.jpg';
+// Public assets served at root URL — reference by path, not imported as modules
+const img1 = '/images/gallery_command_center_1775724037981.jpg';
+const img2 = '/images/gallery_cctv_system_1775724262552.jpg';
+const img3 = '/images/gallery_guard_post_1775724080278.jpg';
+const img4 = '/images/gallery_cyber_security_1775724351240.jpg';
+const img5 = '/images/gallery_asset_vault_1775724396613.jpg';
+const img6 = '/images/gallery_patrol_vehicle_1775724379983.jpg';
 
 const Gallery = () => {
   const { t } = useTranslation();
