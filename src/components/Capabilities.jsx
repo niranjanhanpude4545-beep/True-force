@@ -42,10 +42,9 @@ const Capabilities = () => {
   ];
 
   return (
-    <section className="py-28 relative overflow-hidden transition-colors duration-300 bg-white dark:bg-[#0d1321]">
-      {/* Accent glow blobs */}
-      <div className="absolute top-1/4 -left-48 w-[500px] h-[500px] bg-blue-500/[0.07] rounded-full blur-[120px] pointer-events-none"></div>
-      <div className="absolute bottom-1/4 -right-48 w-[500px] h-[500px] bg-red-500/[0.05] rounded-full blur-[120px] pointer-events-none"></div>
+    <section className="py-28 relative overflow-hidden transition-colors duration-300 bg-transparent">
+      {/* Subtle accent glow */}
+      <div className="absolute top-1/4 -left-48 w-[500px] h-[500px] bg-blue-500/[0.04] rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="w-[90%] max-w-[1200px] mx-auto relative z-10">
         <motion.div

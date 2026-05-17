@@ -23,9 +23,9 @@ const TrustIndicators = () => {
   ];
 
   return (
-    <section className="py-28 bg-slate-50 dark:bg-[#0a0f1c] transition-colors duration-300 relative overflow-hidden">
+    <section className="py-28 bg-transparent transition-colors duration-300 relative overflow-hidden">
       {/* Subtle glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-500/[0.04] rounded-full blur-[100px] pointer-events-none"></div>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-500/[0.03] rounded-full blur-[100px] pointer-events-none"></div>
 
       <div className="w-[90%] max-w-[1200px] mx-auto relative z-10">
         {/* Certifications */}

@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 const GoogleReviews = () => {
   const { t } = useTranslation();
-  
+
   const reviews = [
     {
       id: 1,
@@ -34,9 +34,9 @@ const GoogleReviews = () => {
   const colors = ['bg-blue-500', 'bg-emerald-500', 'bg-violet-500'];
 
   return (
-    <section className="py-28 bg-white dark:bg-[#0d1321] transition-colors duration-300 relative overflow-hidden">
+    <section className="py-28 bg-transparent transition-colors duration-300 relative overflow-hidden">
       {/* Subtle accent glow */}
-      <div className="absolute bottom-0 right-0 w-[600px] h-[400px] bg-amber-500/[0.04] rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute bottom-0 right-0 w-[600px] h-[400px] bg-blue-500/[0.03] rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="w-[90%] max-w-[1200px] mx-auto relative z-10">
         <motion.div

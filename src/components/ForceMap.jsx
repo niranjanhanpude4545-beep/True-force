@@ -1,81 +1,79 @@
 import { MapContainer, TileLayer, Circle } from 'react-leaflet';
 import { useTranslation, Trans } from 'react-i18next';
-import { motion } from 'framer-motion';
 
 const zones = [
-  { loc: [18.5204, 73.8567], radius: 3000, color: '#2563eb' }, // Center - Cyber Blue
-  { loc: [18.6161, 73.7983], radius: 2000, color: '#0891b2' }, // Pimpri - Cyan
-  { loc: [18.5089, 73.9259], radius: 2500, color: '#0891b2' }, // Hadapsar/Magarpatta - Cyan
-  { loc: [18.5808, 73.9787], radius: 1500, color: '#2563eb' }  // Wagholi/Bakori - Cyber Blue
+  { loc: [18.5204, 73.8567], radius: 3000, color: '#2563eb' },
+  { loc: [18.6161, 73.7983], radius: 2000, color: '#0891b2' },
+  { loc: [18.5089, 73.9259], radius: 2500, color: '#0891b2' },
+  { loc: [18.5808, 73.9787], radius: 1500, color: '#2563eb' }
 ];
 
 const ForceMap = () => {
   const { t } = useTranslation();
+
   return (
-    <section className="py-28 bg-white dark:bg-[#0d1321] transition-colors duration-300" id="coverage">
+    <section className="py-28 bg-transparent transition-colors duration-300" id="coverage">
       <div className="w-[90%] max-w-[1200px] mx-auto">
-        
-        <motion.div
-          className="mb-12 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-        >
-          <span className="inline-block text-xs font-black uppercase text-violet-600 dark:text-violet-400 tracking-[0.35em] mb-4 px-5 py-2 rounded-full bg-violet-50 dark:bg-violet-400/10 border border-violet-200 dark:border-violet-400/20">
+        <div className="mb-12 text-center">
+          <span className="inline-flex items-center rounded-full border border-blue-200 bg-blue-100 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">
             {t('forceMap.badge')}
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+          <h2 className="mt-5 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
             {t('forceMap.title')}
           </h2>
-          <p className="text-slate-500 dark:text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-slate-600 dark:text-slate-400">
             <Trans i18nKey="forceMap.subtitle">
               View our real-time <strong className="text-slate-900 dark:text-white font-semibold">Security Density</strong> across Pune. Fast backup, massive local presence.
             </Trans>
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="h-[500px] relative rounded-2xl overflow-hidden border border-slate-200 dark:border-white/[0.08] shadow-xl"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-        >
-          
-          {/* Ensure leaflet map container takes full height */}
-          <MapContainer 
-            center={[18.5204, 73.8567]} 
-            zoom={11} 
-            scrollWheelZoom={false}
-            style={{ width: '100%', height: '100%' }}
-          >
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-              url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-              subdomains="abcd"
-              maxZoom={20}
-            />
-            {zones.map((zone, idx) => (
-              <Circle
-                key={idx}
-                center={zone.loc}
-                pathOptions={{ color: zone.color, fillColor: zone.color, fillOpacity: 0.2 }}
-                radius={zone.radius}
+        <div className="grid gap-6 lg:grid-cols-[1.4fr_0.6fr] items-start">
+          <div className="h-[520px] overflow-hidden rounded-[2rem] border border-blue-100 dark:border-blue-500/20 shadow-xl bg-white dark:bg-gunmetal/30 dark:invert-[.95] dark:hue-rotate-180 dark:contrast-105">
+            <MapContainer
+              center={[18.5204, 73.8567]}
+              zoom={11}
+              scrollWheelZoom={false}
+              style={{ width: '100%', height: '100%' }}
+            >
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
-            ))}
-          </MapContainer>
-
-          {/* Overlay Panel */}
-          <div className="absolute top-5 right-5 bg-slate-900/80 backdrop-blur-xl border border-white/10 p-5 rounded-xl z-[1000] text-white shadow-2xl">
-            <h4 className="font-bold mb-2 text-sm">{t('forceMap.zone')}: <span className="text-blue-400 font-semibold">{t('forceMap.industrialHub')}</span></h4>
-            <p className="text-sm text-slate-300 mb-1">{t('forceMap.activeGuards')}: <span className="text-white font-bold">150+</span></p>
-            <p className="text-sm text-slate-300">{t('forceMap.avgResponseTime')}: <span className="text-emerald-400 font-bold">{'<'} 8 mins</span></p>
+              {zones.map((zone, idx) => (
+                <Circle
+                  key={idx}
+                  center={zone.loc}
+                  pathOptions={{ color: zone.color, fillColor: zone.color, fillOpacity: 0.18 }}
+                  radius={zone.radius}
+                />
+              ))}
+            </MapContainer>
           </div>
 
-        </motion.div>
-      </div>
+          <div className="space-y-6 rounded-[2rem] border border-blue-100 dark:border-blue-500/20 bg-white/95 dark:bg-gunmetal/50 p-6 shadow-xl shadow-blue-200/20 dark:shadow-none backdrop-blur-sm">
+            <div>
+              <h4 className="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700 dark:text-blue-400">{t('forceMap.coverage')}</h4>
+              <p className="mt-4 text-slate-700 dark:text-slate-300 text-lg font-semibold">{t('forceMap.industrialHub')}</p>
+            </div>
 
+            <div className="rounded-3xl border border-blue-100 dark:border-blue-500/20 bg-blue-50 dark:bg-blue-900/10 p-5">
+              <p className="text-sm text-slate-500 dark:text-slate-400">{t('forceMap.activeGuards')}</p>
+              <p className="mt-3 text-3xl font-semibold text-slate-900 dark:text-white">150+</p>
+            </div>
+
+            <div className="rounded-3xl border border-blue-100 dark:border-blue-500/20 bg-white dark:bg-gunmetal/30 p-5">
+              <p className="text-sm text-slate-500 dark:text-slate-400">{t('forceMap.avgResponseTime')}</p>
+              <p className="mt-3 text-3xl font-semibold text-slate-900 dark:text-white">&lt; 8 mins</p>
+            </div>
+
+            <div className="rounded-3xl border border-blue-100 dark:border-blue-500/20 bg-white dark:bg-gunmetal/30 p-5">
+              <p className="text-sm text-slate-500 dark:text-slate-400">{t('forceMap.backup') || 'Rapid local backup'}</p>
+              <p className="mt-3 text-base font-semibold text-slate-700 dark:text-slate-300">Multiple rapid response teams across the network</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

@@ -42,7 +42,7 @@ const QuoteInvoice = () => {
   const date = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-deepNavy py-20 px-4 transition-colors duration-300">
+    <div className="min-h-screen bg-transparent py-20 px-4 transition-colors duration-300">
       <div className="max-w-[900px] mx-auto">
         
         {/* Actions Bar - Hidden on Print */}
@@ -89,13 +89,13 @@ const QuoteInvoice = () => {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-white dark:bg-gunmetal/20 backdrop-blur-xl border border-titanium/30 rounded-3xl shadow-2xl overflow-hidden print:shadow-none print:border-none print:bg-white"
+          className="bg-white dark:bg-[#121a2f] border border-titanium/30 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden print:shadow-none print:border-none print:bg-white"
           id="invoice-capture"
         >
           {/* Header & Identification */}
           <div className="bg-eliteNavy dark:bg-black/40 p-10 text-white flex flex-col md:flex-row justify-between items-start md:items-center gap-8 border-b border-white/10">
             <div className="flex items-center gap-4">
-              <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center p-2 shadow-xl">
+              <div className="w-16 h-16 bg-white dark:bg-white/10 rounded-2xl flex items-center justify-center p-2 shadow-xl">
                  <img src={logoNew} alt="TrueForce" className="w-full h-auto object-contain" />
               </div>
               <div>
@@ -157,11 +157,11 @@ const QuoteInvoice = () => {
                 </div>
                 
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="p-3 bg-white dark:bg-gunmetal/40 rounded-xl border border-gray-100 dark:border-white/10">
+                  <div className="p-3 bg-white dark:bg-white/5 rounded-xl border border-gray-100 dark:border-white/10">
                     <div className="text-[10px] text-textSecondary uppercase">{t('roi.avgResponseTime', 'Response Time')}</div>
                     <div className="font-bold text-cyberBlue">{quoteData.roiMetrics.responseTime}</div>
                   </div>
-                  <div className="p-3 bg-white dark:bg-gunmetal/40 rounded-xl border border-gray-100 dark:border-white/10">
+                  <div className="p-3 bg-white dark:bg-white/5 rounded-xl border border-gray-100 dark:border-white/10">
                     <div className="text-[10px] text-textSecondary uppercase">{t('roi.coverage', 'Coverage')}</div>
                     <div className="font-bold text-successGreen">{quoteData.roiMetrics.coverage}</div>
                   </div>
@@ -170,7 +170,7 @@ const QuoteInvoice = () => {
             </div>
 
             {/* Financial Summary */}
-            <div className="mt-12 bg-eliteNavy text-white p-8 rounded-2xl shadow-xl shadow-eliteNavy/20 relative overflow-hidden">
+            <div className="mt-12 bg-eliteNavy dark:bg-[#0a0f1c] border border-transparent dark:border-white/10 text-white p-8 rounded-2xl shadow-xl shadow-eliteNavy/20 relative overflow-hidden">
               <div className="absolute top-0 right-0 p-4 opacity-10">
                  <FaFileInvoice className="text-8xl transform rotate-12" />
               </div>

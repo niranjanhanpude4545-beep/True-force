@@ -53,7 +53,7 @@ const Careers = () => {
   };
 
   return (
-    <div className="pt-[120px] pb-24 min-h-screen bg-white dark:bg-[#0d1321] transition-colors duration-300">
+    <div className="pt-[120px] pb-24 min-h-screen bg-transparent transition-colors duration-300">
       <div className="w-[90%] max-w-[1000px] mx-auto">
         <AnimatePresence mode="wait">
           {!selectedJob ? (

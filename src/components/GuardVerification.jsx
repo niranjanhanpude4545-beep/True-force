@@ -21,7 +21,7 @@ const GuardVerification = () => {
   };
 
   return (
-    <section className="py-[80px]" id="verification">
+    <section className="py-[80px] bg-gradient-to-br from-white via-blue-50 to-blue-100" id="verification">
       <div className="w-[90%] max-w-[1200px] mx-auto text-center">
         <div className="max-w-[800px] mx-auto mb-10">
           <h2 className="text-[2.5rem]">{t('verification.title')}</h2>

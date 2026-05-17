@@ -27,7 +27,7 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
 
   return (
     <motion.nav 
-      className="fixed top-0 w-full bg-white/80 dark:bg-[#0d1321]/80 backdrop-blur-xl !rounded-none !border-x-0 !border-t-0 !shadow-sm z-[1000] border-b border-slate-200 dark:border-white/[0.06] h-[75px] transition-all duration-300"
+      className="fixed top-0 w-full bg-white/90 dark:bg-[#0a0f1c]/90 backdrop-blur-xl !rounded-none !border-x-0 !border-t-0 !shadow-sm z-[1000] border-b border-blue-200/40 dark:border-blue-900/40 h-[75px] transition-all duration-300"
       initial={{ y: -75 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}

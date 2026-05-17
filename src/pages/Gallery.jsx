@@ -20,7 +20,7 @@ const Gallery = () => {
   ];
 
   return (
-    <div className="pt-[120px] pb-16 min-h-[80vh] bg-white dark:bg-[#0d1321] transition-colors duration-300">
+    <div className="pt-[120px] pb-16 min-h-[80vh] bg-transparent transition-colors duration-300">
       <div className="text-center mb-12 w-[90%] max-w-[1200px] mx-auto">
         <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">{t('gallery.title', 'Our Force in Action')}</h1>
         <p className="text-slate-500 dark:text-slate-400 text-lg max-w-2xl mx-auto">{t('gallery.subtitle', 'A glimpse into our real-time deployments, elite training, and command center.')}</p>

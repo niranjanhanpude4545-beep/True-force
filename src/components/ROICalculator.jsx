@@ -90,26 +90,10 @@ const EliteROICalculator = () => {
   };
 
   return (
-    <section className="py-[100px] relative overflow-hidden transition-colors duration-300 bg-slate-50 dark:bg-[#0a0f1c]" id="roi-calculator">
-      {/* Elite Background Elements */}
-      <motion.div
-        className="absolute top-0 left-0 w-96 h-96 bg-cyberBlue/4 rounded-full blur-3xl opacity-20 pointer-events-none"
-        animate={{ scale: [1, 1.3, 1], opacity: [0.1, 0.3, 0.1] }}
-        transition={{ duration: 10, repeat: Infinity }}
-      />
-      <motion.div
-        className="absolute bottom-0 right-0 w-80 h-80 bg-platinumSilver/5 rounded-full blur-3xl opacity-25 pointer-events-none"
-        animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.1, 0.3] }}
-        transition={{ duration: 12, repeat: Infinity }}
-      />
-
-      {/* Security Grid Overlay */}
-      <div className="absolute inset-0 opacity-3 z-0">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(37,99,235,0.05) 1px, transparent 0)`,
-          backgroundSize: '40px 40px'
-        }} />
-      </div>
+    <section className="py-[100px] relative overflow-hidden transition-colors duration-300 bg-transparent" id="roi-calculator">
+      {/* Subtle accent glow */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/[0.03] rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-blue-400/[0.02] rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="w-[90%] max-w-[1400px] mx-auto relative z-10">
         <motion.div
@@ -125,10 +109,10 @@ const EliteROICalculator = () => {
             <div className="status-active">{t('hero.online')}</div>
           </div>
 
-          <h2 className="text-command font-bold font-heading text-textPrimary mb-4">
+          <h2 className="text-command font-bold font-heading text-slate-900 dark:text-white mb-4">
             {t('roi.subtitle')}
           </h2>
-          <p className="text-textSecondary text-lg max-w-2xl mx-auto">
+          <p className="text-slate-600 dark:text-slate-300 text-lg max-w-2xl mx-auto">
             {t('roi.description')}
           </p>
         </motion.div>
@@ -148,17 +132,17 @@ const EliteROICalculator = () => {
           >
             <div className="flex items-center gap-3 mb-8">
               <FaShieldAlt className="text-cyberBlue text-xl" />
-              <h3 className="text-xl font-bold text-textPrimary">{t('roi.parameters')}</h3>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white">{t('roi.parameters')}</h3>
             </div>
 
             {/* Property Type */}
             <motion.div className="mb-6">
-              <label className="block mb-3 font-semibold text-textPrimary flex items-center gap-2">
+              <label className="block mb-3 font-semibold text-slate-900 dark:text-white flex items-center gap-2">
                 <FaMapMarkerAlt className="text-cyberBlue" />
                 {t('roi.assetClass')}
               </label>
               <select
-                className="w-full p-4 bg-white/20 dark:bg-eliteNavy/80 border border-titanium/50 dark:text-textPrimary text-eliteNavy rounded-lg focus:outline-none focus:border-platinumSilver focus:ring-2 focus:ring-platinumSilver/30 transition-all backdrop-blur-sm"
+                className="w-full p-4 bg-white/20 dark:bg-eliteNavy/80 border border-titanium/50 dark:text-white text-eliteNavy rounded-lg focus:outline-none focus:border-platinumSilver focus:ring-2 focus:ring-platinumSilver/30 transition-all backdrop-blur-sm"
                 value={propType}
                 onChange={e => setPropType(e.target.value)}
               >
@@ -171,12 +155,12 @@ const EliteROICalculator = () => {
 
             {/* Threat Level */}
             <motion.div className="mb-6">
-              <label className="block mb-3 font-semibold text-textPrimary flex items-center gap-2">
+              <label className="block mb-3 font-semibold text-slate-900 dark:text-white flex items-center gap-2">
                 <FaExclamationTriangle className="text-cyberBlue" />
                 {t('roi.threatLevel')}
               </label>
               <select
-                className="w-full p-4 bg-white/20 dark:bg-eliteNavy/80 border border-titanium/50 dark:text-textPrimary text-eliteNavy rounded-lg focus:outline-none focus:border-platinumSilver focus:ring-2 focus:ring-platinumSilver/30 transition-all backdrop-blur-sm"
+                className="w-full p-4 bg-white/20 dark:bg-eliteNavy/80 border border-titanium/50 dark:text-white text-eliteNavy rounded-lg focus:outline-none focus:border-platinumSilver focus:ring-2 focus:ring-platinumSilver/30 transition-all backdrop-blur-sm"
                 value={threatLevel}
                 onChange={e => setThreatLevel(e.target.value)}
               >
@@ -189,7 +173,7 @@ const EliteROICalculator = () => {
             {/* Square Feet Slider */}
             <motion.div className="mb-6">
               <div className="flex justify-between items-center mb-3">
-                <label className="block font-semibold text-textPrimary">{t('roi.coverageArea')}</label>
+                <label className="block font-semibold text-slate-900 dark:text-white">{t('roi.coverageArea')}</label>
                 <span className="text-lg font-bold text-cyberBlue">{sqft.toLocaleString()}</span>
               </div>
               <input
@@ -205,10 +189,10 @@ const EliteROICalculator = () => {
 
             {/* Entry Points */}
             <motion.div className="mb-6">
-              <label className="block mb-3 font-semibold text-textPrimary">{t('roi.perimeters')}</label>
+              <label className="block mb-3 font-semibold text-slate-900 dark:text-white">{t('roi.perimeters')}</label>
               <input
                 type="number"
-                className="w-full p-4 bg-white/20 dark:bg-eliteNavy/80 border border-titanium/50 dark:text-textPrimary text-eliteNavy rounded-lg focus:outline-none focus:border-platinumSilver focus:ring-2 focus:ring-platinumSilver/30 transition-all"
+                className="w-full p-4 bg-white/20 dark:bg-eliteNavy/80 border border-titanium/50 dark:text-white text-eliteNavy rounded-lg focus:outline-none focus:border-platinumSilver focus:ring-2 focus:ring-platinumSilver/30 transition-all"
                 value={entryPoints}
                 min="1"
                 max="20"
@@ -218,9 +202,9 @@ const EliteROICalculator = () => {
 
             {/* Shift */}
             <motion.div className="mb-10">
-              <label className="block mb-3 font-semibold text-textPrimary">{t('roi.operational')}</label>
+              <label className="block mb-3 font-semibold text-slate-900 dark:text-white">{t('roi.operational')}</label>
               <select
-                className="w-full p-4 bg-white/20 dark:bg-eliteNavy/80 border border-titanium/50 dark:text-textPrimary text-eliteNavy rounded-lg focus:outline-none focus:border-platinumSilver focus:ring-2 focus:ring-platinumSilver/30 transition-all"
+                className="w-full p-4 bg-white/20 dark:bg-eliteNavy/80 border border-titanium/50 dark:text-white text-eliteNavy rounded-lg focus:outline-none focus:border-platinumSilver focus:ring-2 focus:ring-platinumSilver/30 transition-all"
                 value={shift}
                 onChange={e => setShift(e.target.value)}  
               >
@@ -238,13 +222,13 @@ const EliteROICalculator = () => {
               <div className="flex gap-4">
                 <button 
                   onClick={() => setAdditionalGuards(Math.max(0, additionalGuards - 1))}
-                  className="flex-1 py-3 bg-gunmetal/5 dark:bg-gunmetal/40 border border-titanium/30 rounded-lg text-2xl font-bold text-textPrimary hover:bg-cyberBlue/20 transition-all"
+                  className="flex-1 py-3 bg-gunmetal/5 dark:bg-gunmetal/40 border border-titanium/30 rounded-lg text-2xl font-bold text-slate-900 dark:text-white hover:bg-cyberBlue/20 transition-all"
                 >
                   -
                 </button>
                 <button 
                   onClick={() => setAdditionalGuards(additionalGuards + 1)}
-                  className="flex-1 py-3 bg-gunmetal/5 dark:bg-gunmetal/40 border border-titanium/30 rounded-lg text-2xl font-bold text-textPrimary hover:bg-cyberBlue/20 transition-all"
+                  className="flex-1 py-3 bg-gunmetal/5 dark:bg-gunmetal/40 border border-titanium/30 rounded-lg text-2xl font-bold text-slate-900 dark:text-white hover:bg-cyberBlue/20 transition-all"
                 >
                   +
                 </button>
@@ -263,27 +247,27 @@ const EliteROICalculator = () => {
               animate={{ scale: [1, 1.02, 1] }}
               transition={{ duration: 3, repeat: Infinity }}
             >
-              <div className="clearance-level mb-4 text-textSecondary">{t('roi.clearance')}</div>
+              <div className="clearance-level mb-4 text-slate-600 dark:text-slate-300">{t('roi.clearance')}</div>
               <motion.div
                 className="w-20 h-20 mx-auto rounded-full bg-securityRed/20 border-3 border-securityRed flex items-center justify-center text-3xl font-bold text-securityRed mb-3"
                 whileHover={{ scale: 1.1, rotate: 5 }}
               >
                 {score}
               </motion.div>
-              <div className="text-xs text-textSecondary uppercase tracking-wider">{t('roi.threatAssessment')}</div>
+              <div className="text-xs text-slate-600 dark:text-slate-300 uppercase tracking-wider">{t('roi.threatAssessment')}</div>
             </motion.div>
 
             {/* Elite Force Deployment */}
             <motion.div
               className="command-panel liquid-glass p-6"
             >
-              <h4 className="text-lg font-bold dark:text-textPrimary text-eliteNavy mb-4 flex items-center gap-2">
+              <h4 className="text-lg font-bold dark:text-white text-eliteNavy mb-4 flex items-center gap-2">
                 <FaShieldAlt className="text-cyberBlue" />
                 {t('roi.forceDeployment')}
               </h4>
               <p className="text-cyberBlue font-semibold text-lg">{recGuardsTxt}</p>
               <div className="mt-4 pt-4 border-t border-titanium/30">
-                <div className="text-sm text-textSecondary">{t('forceMap.avgResponseTime')}</div>
+                <div className="text-sm text-slate-600 dark:text-slate-300">{t('forceMap.avgResponseTime')}</div>
                 <div className="text-cyberBlue font-bold">{roiMetrics.responseTime}</div>
               </div>
             </motion.div>
@@ -292,21 +276,21 @@ const EliteROICalculator = () => {
             <motion.div
               className="command-panel liquid-glass p-6"
             >
-              <h4 className="text-lg font-bold dark:text-textPrimary text-eliteNavy mb-4 flex items-center gap-2">
+              <h4 className="text-lg font-bold dark:text-white text-eliteNavy mb-4 flex items-center gap-2">
                 <FaChartLine className="text-successGreen" />
                 {t('roi.roiMetrics')}
               </h4>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <div className="text-xs text-textSecondary uppercase tracking-wider">{t('roi.coverage')}</div>
+                  <div className="text-xs text-slate-600 dark:text-slate-300 uppercase tracking-wider">{t('roi.coverage')}</div>
                   <div className="text-successGreen font-bold text-lg">{roiMetrics.coverage}</div>
                 </div>
                 <div>
-                  <div className="text-xs text-textSecondary uppercase tracking-wider">{t('roi.incidents')}</div>
+                  <div className="text-xs text-slate-600 dark:text-slate-300 uppercase tracking-wider">{t('roi.incidents')}</div>
                   <div className="text-successGreen font-bold text-lg">{roiMetrics.incidentsPrevented}</div>
                 </div>
                 <div className="col-span-2 pt-2 border-t border-titanium/30">
-                  <div className="text-xs text-textSecondary uppercase tracking-wider">{t('roi.savings')}</div>
+                  <div className="text-xs text-slate-600 dark:text-slate-300 uppercase tracking-wider">{t('roi.savings')}</div>
                   <div className="text-successGreen font-bold text-xl">{roiMetrics.costSavings}</div>
                 </div>
               </div>
@@ -317,9 +301,9 @@ const EliteROICalculator = () => {
               className="command-panel liquid-glass p-6"
             >
               <div className="mb-4">
-                <p className="mb-2 text-xs text-textSecondary uppercase tracking-wider">{t('roi.investment')}</p>
+                <p className="mb-2 text-xs text-slate-600 dark:text-slate-300 uppercase tracking-wider">{t('roi.investment')}</p>
                 <h2 className="text-2xl font-bold m-0 text-cyberBlue">{estCostTxt}</h2>
-                <small className="text-xs text-textSecondary mt-2 block">{t('roi.subjectToAudit')}</small>
+                <small className="text-xs text-slate-600 dark:text-slate-300 mt-2 block">{t('roi.subjectToAudit')}</small>
               </div>
 
               {/* Elite CTA */}

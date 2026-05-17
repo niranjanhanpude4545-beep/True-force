@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { FaBuilding, FaHome, FaIndustry, FaCalendarAlt, FaUserShield, FaNetworkWired, FaTimes } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import GuardVerification from '../components/GuardVerification';
 import LiveSecurityDashboard from '../components/LiveSecurityDashboard';
 
 const Services = () => {
@@ -61,7 +60,7 @@ const Services = () => {
   ];
 
   return (
-    <div className="pt-[100px] pb-16 bg-white dark:bg-[#0d1321] transition-colors duration-300">
+    <div className="pt-[100px] pb-16 bg-transparent transition-colors duration-300">
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold font-heading text-gunmetal dark:text-platinumSilver mb-4 transition-colors">
           {t('services.title')}
@@ -154,7 +153,6 @@ const Services = () => {
       </AnimatePresence>
 
       <LiveSecurityDashboard />
-      <GuardVerification />
     </div>
   );
 };

@@ -21,9 +21,9 @@ const TrustedPartners = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="py-24 bg-slate-50 dark:bg-[#0a0f1c] transition-colors duration-300 relative overflow-hidden">
+    <section className="py-24 bg-transparent transition-colors duration-300 relative overflow-hidden">
       {/* Subtle gradient accent */}
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent"></div>
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-300/40 to-transparent"></div>
 
       <div className="w-[90%] max-w-[1200px] mx-auto relative z-10">
         <motion.div
