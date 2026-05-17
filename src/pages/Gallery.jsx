@@ -1,23 +1,25 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 // Public assets served at root URL — reference by path, not imported as modules
-const img1 = '/images/gallery_command_center_1775724037981.jpg';
-const img2 = '/images/gallery_cctv_system_1775724262552.jpg';
-const img3 = '/images/gallery_guard_post_1775724080278.jpg';
-const img4 = '/images/gallery_cyber_security_1775724351240.jpg';
-const img5 = '/images/gallery_asset_vault_1775724396613.jpg';
-const img6 = '/images/gallery_patrol_vehicle_1775724379983.jpg';
+const img1 = '/images/media__1779045351799.jpg';
+const img2 = '/images/media__1779045351840.jpg';
+const img3 = '/images/media__1779045351897.jpg';
+const img4 = '/images/media__1779045351936.jpg';
+const img5 = '/images/media__1779045351952.jpg';
+const img6 = '/images/new_image_1.jpg';
+const img7 = '/images/new_image_2.jpg';
 
 const Gallery = () => {
   const { t } = useTranslation();
   
   const galleryItems = [
-    { id: 1, src: img1, title: t('gallery.items.c1', 'Live Command Operations') },
-    { id: 2, src: img2, title: t('gallery.items.c2', 'Advanced CCTV Tracking') },
-    { id: 3, src: img3, title: t('gallery.items.c3', 'Tactical Response Teams') },
-    { id: 4, src: img4, title: t('gallery.items.c4', 'Cybersecurity Divisions') },
-    { id: 5, src: img5, title: t('gallery.items.c5', 'Asset Protection Vaults') },
-    { id: 6, src: img6, title: t('gallery.items.c6', 'Patrol Operations') }
+    { id: 1, src: img1, title: t('gallery.items.g1', 'Professional Security Guard') },
+    { id: 2, src: img2, title: t('gallery.items.g2', 'Trained Security Personnel') },
+    { id: 3, src: img3, title: t('gallery.items.g3', 'Event Security & Parades') },
+    { id: 4, src: img4, title: t('gallery.items.g4', 'Honoring the Nation') },
+    { id: 5, src: img5, title: t('gallery.items.g5', 'Community Engagement') },
+    { id: 6, src: img6, title: t('gallery.items.g6', 'Security Briefing') },
+    { id: 7, src: img7, title: t('gallery.items.g7', 'Specialized Uniforms') }
   ];
 
   return (
