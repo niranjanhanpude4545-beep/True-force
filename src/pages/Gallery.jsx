@@ -6,8 +6,7 @@ const img2 = '/images/media__1779045351840.jpg';
 const img3 = '/images/media__1779045351897.jpg';
 const img4 = '/images/media__1779045351936.jpg';
 const img5 = '/images/media__1779045351952.jpg';
-const img6 = '/images/new_image_1.jpg';
-const img7 = '/images/new_image_2.jpg';
+const img6 = '/images/media__1779126646150.jpg';
 
 const Gallery = () => {
   const { t } = useTranslation();
@@ -18,8 +17,7 @@ const Gallery = () => {
     { id: 3, src: img3, title: t('gallery.items.g3', 'Event Security & Parades') },
     { id: 4, src: img4, title: t('gallery.items.g4', 'Honoring the Nation') },
     { id: 5, src: img5, title: t('gallery.items.g5', 'Community Engagement') },
-    { id: 6, src: img6, title: t('gallery.items.g6', 'Security Briefing') },
-    { id: 7, src: img7, title: t('gallery.items.g7', 'Specialized Uniforms') }
+    { id: 6, src: img6, title: t('gallery.items.g6', 'Republic Day Celebration') }
   ];
 
   return (

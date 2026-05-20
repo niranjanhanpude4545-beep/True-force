@@ -22,14 +22,10 @@ const CommanderBot = () => {
   }, [messages, isOpen, isTyping]);
 
   const quickActions = [
-    { id: 'quote', label: t('commander.quickActions.quote', 'Request Quote'), icon: <FaCalculator />, action: () => navigate('/services') },
-    { id: 'coverage', label: t('commander.quickActions.coverage', 'Check Coverage'), icon: <FaMapMarkerAlt />, action: () => {
-      const el = document.getElementById('coverage');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-      else navigate('/');
-    }},
-    { id: 'human', label: t('commander.quickActions.human', 'Speak to Human'), icon: <FaShieldAlt />, action: () => window.open('https://wa.me/919876543210', '_blank') },
-    { id: 'jobs', label: t('commander.quickActions.jobs', 'View Careers'), icon: <FaBriefcase />, action: () => navigate('/careers') },
+    { id: 'quote', label: t('commander.quickActions.quote', 'Request Quote'), icon: <FaCalculator />, action: () => navigate('/quote') },
+    { id: 'coverage', label: t('commander.quickActions.coverage', 'Check Coverage'), icon: <FaMapMarkerAlt />, action: () => window.scrollTo(0, document.body.scrollHeight) },
+    { id: 'human', label: t('commander.quickActions.human', 'Speak to Human'), icon: <FaShieldAlt />, action: () => window.open('https://wa.me/917385629397', '_blank') },
+    { id: 'jobs', label: t('commander.quickActions.jobs', 'View Careers'), icon: <FaBriefcase />, action: () => navigate('/careers') }
   ];
 
   const generateBotResponse = (userText) => {

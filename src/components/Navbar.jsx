@@ -101,7 +101,7 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
 
           {/* CTA Button with Glow */}
           <motion.a 
-            href="https://wa.me/919876543210?text=I%20would%20like%20to%20book%20a%20consultation"
+            href="https://wa.me/917385629397?text=I%20would%20like%20to%20book%20a%20consultation"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden sm:inline-block bg-cyberBlue hover:bg-cyberBlue/80 text-white px-6 py-3 font-bold uppercase tracking-widest text-xs rounded-xl relative overflow-hidden group shadow-lg shadow-cyberBlue/20"

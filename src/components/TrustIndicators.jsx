@@ -2,6 +2,7 @@ import React from 'react';
 import { FaShieldAlt, FaCertificate, FaAward, FaCheckCircle, FaBuilding, FaIndustry, FaCity, FaHome, FaShoppingBag, FaTruckLoading } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import TheAgency from './TheAgency';
 
 const TrustIndicators = () => {
   const { t } = useTranslation();
@@ -66,6 +67,9 @@ const TrustIndicators = () => {
             ))}
           </div>
         </motion.div>
+
+        {/* The Agency Section */}
+        <TheAgency />
 
         {/* Client Sectors */}
         <motion.div

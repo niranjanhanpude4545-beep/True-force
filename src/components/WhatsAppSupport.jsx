@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const WhatsAppSupport = () => {
   return (
     <motion.a
-      href="https://wa.me/919876543210"
+      href="https://wa.me/917385629397"
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-24 md:bottom-8 right-6 z-[999] w-14 h-14 liquid-glass-strong flex justify-center items-center cursor-pointer group rounded-2xl border-2 border-white/20 shadow-2xl shadow-green-500/30"

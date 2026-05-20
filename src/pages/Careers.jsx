@@ -45,6 +45,7 @@ const Careers = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    window.location.href = `mailto:info@trueforcesecurity.com?subject=Job Application: ${selectedJob.title}`;
     setIsSubmitted(true);
     setTimeout(() => {
       setSelectedJob(null);

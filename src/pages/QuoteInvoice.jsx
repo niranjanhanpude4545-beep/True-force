@@ -75,14 +75,14 @@ const QuoteInvoice = () => {
             >
               <FaPrint /> {t('common.download', 'Download PDF')}
             </button>
-            <a 
-              href="https://wa.me/919876543210"
+            <motion.a
+              href="https://wa.me/917385629397"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 bg-[#25D366] text-white px-4 md:px-6 py-2.5 rounded-xl shadow-lg shadow-[#25D366]/20 hover:scale-105 transition-all font-bold text-sm"
             >
               <FaWhatsapp /> {t('common.contact', 'Contact')}
-            </a>
+            </motion.a>
           </div>
         </div>
 

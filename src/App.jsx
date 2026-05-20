@@ -121,8 +121,8 @@ function App() {
                 </h4>
                 <div className="space-y-2 text-sm text-slate-500 dark:text-slate-400">
                   <p>📍 Pune, Maharashtra, India</p>
-                  <p>📞 +91 98765 43210</p>
-                  <p>✉️ info@trueforce.in</p>
+                  <p>📞 +91 7385 629 397</p>
+                  <p>✉️ info@trueforcesecurity.com</p>
                 </div>
               </div>
             </div>
