@@ -120,7 +120,7 @@ function App() {
                   {t('nav.contact')}
                 </h4>
                 <div className="space-y-2 text-sm text-slate-500 dark:text-slate-400">
-                  <p>📍 Pune, Maharashtra, India</p>
+                  <p>📍 A307, Oxy Primo Business Center. Bakori Phata Wagholi</p>
                   <p>📞 +91 7385 629 397</p>
                   <p>✉️ info@trueforcesecurity.com</p>
                 </div>
