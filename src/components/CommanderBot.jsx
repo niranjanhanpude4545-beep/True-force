@@ -82,7 +82,7 @@ const CommanderBot = () => {
     <>
       {/* Floating Logo-like Commander Bot */}
       {!isOpen && (
-        <div className="fixed bottom-[100px] md:bottom-24 right-6 z-[1000]">
+        <div className="fixed bottom-[160px] md:bottom-24 right-6 z-[1000]">
           <div
             className="w-14 h-14 liquid-glass-strong shadow-2xl shadow-cyberBlue/40 rounded-2xl flex items-center justify-center cursor-pointer hover:scale-110 !hover:rotate-0 transition-all duration-500 group animate-float border-2 border-white/20"
             onClick={() => setIsOpen(true)}
@@ -95,7 +95,7 @@ const CommanderBot = () => {
 
       {/* Chat Interface */}
       {isOpen && (
-        <div className="fixed bottom-[180px] md:bottom-[120px] right-[10px] md:right-[30px] w-[350px] shadow-2xl z-[1000] overflow-hidden rounded-2xl border border-slate-200 dark:border-white/[0.08] drop-shadow-2xl">
+        <div className="fixed bottom-[95px] md:bottom-[120px] left-4 right-4 md:left-auto md:right-[30px] w-auto md:w-[350px] shadow-2xl z-[1002] overflow-hidden rounded-2xl border border-slate-200 dark:border-white/[0.08] drop-shadow-2xl">
           {/* Bot Header */}
           <div className="bg-gradient-to-r from-gunmetal to-eliteNavy text-white py-4 px-5 flex justify-between items-center shadow-md">
             <div className="flex items-center gap-3">
@@ -114,7 +114,7 @@ const CommanderBot = () => {
           </div>
 
           {/* Bot Body */}
-          <div className="bg-white/95 dark:bg-gunmetal/95 backdrop-blur-xl h-[420px] flex flex-col">
+          <div className="bg-white/95 dark:bg-gunmetal/95 backdrop-blur-xl h-[55vh] min-h-[300px] max-h-[400px] sm:h-[420px] sm:max-h-none flex flex-col">
             <div className="flex-1 p-4 overflow-y-auto flex flex-col gap-4">
               {messages.map((msg, idx) => (
                 <div key={idx} className="flex flex-col gap-2">

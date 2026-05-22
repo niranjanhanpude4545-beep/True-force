@@ -8,7 +8,7 @@ const WhatsAppSupport = () => {
       href="https://wa.me/917385629397"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-24 md:bottom-8 right-6 z-[999] w-14 h-14 liquid-glass-strong flex justify-center items-center cursor-pointer group rounded-2xl border-2 border-white/20 shadow-2xl shadow-green-500/30"
+      className="fixed bottom-[90px] md:bottom-8 right-6 z-[999] w-14 h-14 liquid-glass-strong flex justify-center items-center cursor-pointer group rounded-2xl border-2 border-white/20 shadow-2xl shadow-green-500/30"
       whileTap={{ scale: 0.95 }}
       whileHover={{ scale: 1.1 }}
       initial={{ y: 50, opacity: 0 }}

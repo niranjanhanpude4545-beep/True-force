@@ -8,7 +8,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/True-force/',
+  // Use a relative base so the site works on GitHub Pages and other hosts
+  // regardless of the repository name or site subpath.
+  base: './',
   plugins: [react()],
   resolve: {
     alias: {

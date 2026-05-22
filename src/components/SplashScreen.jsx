@@ -71,7 +71,7 @@ const SplashScreen = ({ isVisible }) => {
 
   return (
     <motion.div
-      className="fixed inset-0 z-[9999] bg-deepNavy flex flex-col items-center justify-center pointer-events-none overflow-hidden"
+      className="fixed inset-0 z-[9999] bg-slate-50 flex flex-col items-center justify-center pointer-events-none overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -82,7 +82,7 @@ const SplashScreen = ({ isVisible }) => {
         {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-platinumSilver/20 rounded-full"
+            className="absolute w-1 h-1 bg-blue-500/20 rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -108,7 +108,7 @@ const SplashScreen = ({ isVisible }) => {
         animate={{ opacity: [0, 0.3, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <div className="w-96 h-96 bg-platinumSilver/10 rounded-full blur-3xl" />
+        <div className="w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
       </motion.div>
 
       <motion.div
@@ -156,13 +156,13 @@ const SplashScreen = ({ isVisible }) => {
         >
           <div className="w-80 h-2 bg-textPrimary/10 rounded-full overflow-hidden backdrop-blur-sm border border-textPrimary/20">
             <motion.div
-              className="h-full bg-platinumSilver rounded-full relative"
+              className="h-full bg-blue-600 rounded-full relative"
               variants={progressVariants}
               animate="visible"
             >
               {/* Progress bar glow */}
               <motion.div
-                className="absolute inset-0 bg-platinumSilver rounded-full blur-sm opacity-50"
+                className="absolute inset-0 bg-blue-400 rounded-full blur-sm opacity-50"
                 animate={{
                   opacity: [0.3, 0.7, 0.3],
                 }}
@@ -177,9 +177,9 @@ const SplashScreen = ({ isVisible }) => {
 
           {/* Progress percentage */}
           <motion.div
-            className="mt-3 text-textSecondary text-sm font-mono"
+            className="mt-3 text-textSecondary text-sm font-mono font-semibold"
             animate={{
-              color: progress > 80 ? '#e5e7eb' : '#a0aabf',
+              color: progress > 80 ? '#1e293b' : '#64748b',
             }}
           >
             {progress}%
@@ -203,9 +203,9 @@ const SplashScreen = ({ isVisible }) => {
               <motion.div
                 className="w-2 h-2 rounded-full"
                 animate={{
-                  backgroundColor: progress > (index + 1) * 25 ? '#ff4500' : '#a0aabf',
+                  backgroundColor: progress > (index + 1) * 25 ? '#dc2626' : '#cbd5e1',
                   boxShadow: progress > (index + 1) * 25
-                    ? '0 0 10px rgba(255,69,0,0.6)'
+                    ? '0 0 10px rgba(220,38,38,0.6)'
                     : 'none',
                 }}
                 transition={{ duration: 0.3 }}

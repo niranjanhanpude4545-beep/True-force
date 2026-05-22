@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { FaMoon, FaSun } from 'react-icons/fa';
+import { FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 
 // Public assets are served at root URL — do NOT import from /public as modules
@@ -11,6 +11,7 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
   const { t, i18n } = useTranslation();
   const location = useLocation();
   const [hoveredNav, setHoveredNav] = useState(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
     { id: 'home', label: t('nav.home', 'Home'), href: '/' },
@@ -23,17 +24,18 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
     if (href === location.pathname) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+    setIsMobileMenuOpen(false);
   };
 
 
   return (
     <motion.nav 
-      className="fixed top-0 w-full bg-white/90 dark:bg-[#0a0f1c]/90 backdrop-blur-xl !rounded-none !border-x-0 !border-t-0 !shadow-sm z-[1000] border-b border-blue-200/40 dark:border-blue-900/40 h-[75px] transition-all duration-300"
+      className="fixed top-0 w-full bg-white/90 dark:bg-[#0a0f1c]/90 backdrop-blur-xl !rounded-none !border-x-0 !border-t-0 !shadow-sm z-[1000] border-b border-blue-200/40 dark:border-blue-900/40 transition-all duration-300"
       initial={{ y: -75 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
     >
-      <div className="w-[90%] max-w-[1400px] h-full mx-auto flex justify-between items-center">
+      <div className="w-[90%] max-w-[1400px] h-[75px] mx-auto flex justify-between items-center">
         
         <motion.div 
           className="logo-3d-container flex items-center cursor-pointer"
@@ -74,7 +76,7 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
         </ul>
 
         {/* Actions */}
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-3 md:gap-6">
           {/* Theme Toggle */}
           <motion.button 
             onClick={toggleTheme}
@@ -99,6 +101,14 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
             </select>
           </div>
 
+          {/* Mobile Menu Toggle */}
+          <button 
+            className="md:hidden text-gunmetal dark:text-platinumSilver text-xl p-2.5 rounded-xl border border-titanium/20 hover:border-cyberBlue hover:text-cyberBlue transition-all duration-300 backdrop-blur-md"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+          </button>
+
           {/* CTA Button with Glow */}
           <motion.a 
             href="https://wa.me/917385629397?text=I%20would%20like%20to%20book%20a%20consultation"
@@ -117,6 +127,44 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
           </motion.a>
         </div>
       </div>
+
+      {/* Mobile Menu Dropdown */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            className="md:hidden bg-white/95 dark:bg-[#0a0f1c]/95 backdrop-blur-xl border-b border-blue-200/40 dark:border-blue-900/40 shadow-lg"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <ul className="flex flex-col py-4 px-[5%] gap-4 text-gunmetal dark:text-platinumSilver font-bold uppercase tracking-widest text-sm">
+              {navItems.map((item) => (
+                <li key={item.id} className="border-b border-slate-100 dark:border-slate-800 pb-2">
+                  <Link 
+                    to={item.href} 
+                    className="block w-full hover:text-cyberBlue transition-colors"
+                    onClick={() => handleNavClick(item.href)}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+              <li className="pt-2">
+                <a 
+                  href="https://wa.me/917385629397?text=I%20would%20like%20to%20book%20a%20consultation"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block w-full text-center bg-cyberBlue hover:bg-cyberBlue/80 text-white px-6 py-3 font-bold uppercase tracking-widest text-xs rounded-xl shadow-lg shadow-cyberBlue/20 transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {t('nav.bookConsult')}
+                </a>
+              </li>
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 };
