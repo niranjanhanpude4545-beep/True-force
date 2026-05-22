@@ -15,7 +15,7 @@ import WhatsAppSupport from './components/WhatsAppSupport';
 
 // Public assets are referenced by URL path — NOT imported as modules.
 // Files in /public are served at the root URL (e.g., /logo-new.png).
-const LOGO_URL = '/logo-new.png';
+const LOGO_URL = import.meta.env.BASE_URL + 'logo-new.png';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();

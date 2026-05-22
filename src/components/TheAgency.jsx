@@ -53,7 +53,7 @@ const TheAgency = () => {
           <div className="relative z-10 flex flex-col items-center">
             <div className="w-24 h-24 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center mb-4 border-4 border-white dark:border-slate-800 shadow-md overflow-hidden">
               <img 
-                src="/images/ajit_singh.jpg" 
+                src={import.meta.env.BASE_URL + 'images/ajit_singh.jpg'} 
                 alt="Ajit Singh" 
                 className="w-full h-full object-cover object-top transform group-hover:scale-110 transition-transform duration-500"
               />

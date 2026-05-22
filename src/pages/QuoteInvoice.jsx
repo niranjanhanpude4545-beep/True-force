@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { FaShareAlt, FaArrowLeft, FaShieldAlt, FaFileInvoice, FaCheckCircle, FaPrint, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 // Public assets served at root URL — do NOT import from /public as modules
-const logoNew = '/logo-new.png';
+const logoNew = import.meta.env.BASE_URL + 'logo-new.png';
 
 const QuoteInvoice = () => {
   const location = useLocation();

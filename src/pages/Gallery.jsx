@@ -1,12 +1,12 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 // Public assets served at root URL — reference by path, not imported as modules
-const img1 = '/images/media__1779045351799.jpg';
-const img2 = '/images/media__1779045351840.jpg';
-const img3 = '/images/media__1779045351897.jpg';
-const img4 = '/images/media__1779045351936.jpg';
-const img5 = '/images/media__1779045351952.jpg';
-const img6 = '/images/media__1779126646150.jpg';
+const img1 = import.meta.env.BASE_URL + 'images/media__1779045351799.jpg';
+const img2 = import.meta.env.BASE_URL + 'images/media__1779045351840.jpg';
+const img3 = import.meta.env.BASE_URL + 'images/media__1779045351897.jpg';
+const img4 = import.meta.env.BASE_URL + 'images/media__1779045351936.jpg';
+const img5 = import.meta.env.BASE_URL + 'images/media__1779045351952.jpg';
+const img6 = import.meta.env.BASE_URL + 'images/media__1779126646150.jpg';
 
 const Gallery = () => {
   const { t } = useTranslation();

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 // Public assets are served at root URL — do NOT import from /public as modules
-const logoNew = '/logo-new.png';
+const logoNew = import.meta.env.BASE_URL + 'logo-new.png';
 
 const SplashScreen = ({ isVisible }) => {
   const [progress, setProgress] = useState(0);

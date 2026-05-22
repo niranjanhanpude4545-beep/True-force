@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 
 // Public assets are served at root URL — do NOT import from /public as modules
-const logoNew = '/logo-new.png';
+const logoNew = import.meta.env.BASE_URL + 'logo-new.png';
 
 const Navbar = ({ isDarkMode, toggleTheme }) => {
   const { t, i18n } = useTranslation();

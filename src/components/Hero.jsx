@@ -3,7 +3,7 @@ import { FaShieldAlt, FaClock, FaMapMarkerAlt, FaCheckCircle } from 'react-icons
 import { useTranslation } from 'react-i18next';
 
 // Public assets served at root URL — do NOT import from /public as modules
-const heroBg = '/hero-new-bg.jpg';
+const heroBg = import.meta.env.BASE_URL + 'hero-new-bg.jpg';
 
 const Counter = ({ target, suffix = '', text, icon: Icon }) => {
   const [count, setCount] = useState(0);
